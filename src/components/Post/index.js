@@ -9,7 +9,7 @@ import { useRouter } from "next/router";
 import { toast } from "react-toastify";
 
 const Post = ({ post }) => {
-	const { title, reactions, body, tags, views, userId } = post;
+	const { title, reactions, body, tags, views, userId, id } = post;
 	const { savedPost, setSavedPost } = useContext(PostContext);
 	const router = useRouter();
 	const handleSavePost = () => {
@@ -18,7 +18,7 @@ const Post = ({ post }) => {
 	};
 
 	return (
-		<div className="border flex flex-col p-3">
+		<div className="border flex flex-col p-3" key={id}>
 			<div className="font-bold">{title}</div>
 			<div className="flex flex-row gap-2">
 				{tags.map((tag) => (
